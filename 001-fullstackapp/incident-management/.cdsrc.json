@@ -1,0 +1,11 @@
+{
+  "sql": {
+    "native_hana_associations": false
+  },
+  "requires": {
+    "[production]": {
+      "db": "hana",
+      "auth": "xsuaa"
+    }
+  }
+}
