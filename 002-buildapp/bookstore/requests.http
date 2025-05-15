@@ -1,0 +1,79 @@
+### Create Order
+
+POST http://localhost:8080/odata/v4/OrdersService/Orders
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "book_ID": "abed2f7a-c50e-4bc5-89fd-9a00a54b4b16",
+      "amount": 2
+    }
+  ]
+}
+
+### Read Book
+GET http://localhost:8080/odata/v4/BookService/Books(abed2f7a-c50e-4bc5-89fd-9a00a54b4b16)
+Accept: application/json
+
+
+### Read Book
+GET http://localhost:8080/odata/v4/BookService/Books(fd0c5fda-8811-4e20-bcff-3a776abc290a)
+
+Accept: application/json
+
+### Create another Order
+POST http://localhost:8080/odata/v4/OrdersService/Orders
+Content-Type: application/json
+Authorization: Basic klaus:pass_klaus
+
+{
+  "items": [
+    {
+      "book_ID": "fd0c5fda-8811-4e20-bcff-3a776abc290a",
+      "amount": 1
+    }
+  ]
+}
+
+### Read Products
+
+GET http://localhost:8080/odata/v4/AdminService/Products
+Accept: application/json
+Authorization: Basic klaus:pass_klaus
+
+
+### Create Order as Mia
+
+POST http://localhost:8080/odata/v4/OrdersService/Orders
+Content-Type: application/json
+Authorization: Basic mia:pass_mia
+
+{
+  "items": [
+    {
+      "book_ID": "fd0c5fda-8811-4e20-bcff-3a776abc290a",
+      "amount": 10
+    }
+  ]
+}
+
+### Read Orders as Mia
+
+GET http://localhost:8080/odata/v4/OrdersService/Orders?$expand=items
+Accept: application/json
+Authorization: Basic mia:pass_mia
+
+
+### Read Orders as Klaus
+
+GET http://localhost:8080/odata/v4/OrdersService/OrderItems
+Accept: application/json
+Authorization: Basic klaus:pass_klaus
+
+### Read Orders as Sabine (Administrator)
+
+GET http://localhost:8080/odata/v4/OrdersService/Orders?$expand=items
+Accept: application/json
+Authorization: Basic sabine:pass_sabine
+
